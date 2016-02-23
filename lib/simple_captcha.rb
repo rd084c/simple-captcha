@@ -51,6 +51,10 @@ module SimpleCaptcha
   mattr_accessor :implode
   @@implode = SimpleCaptcha::ImageHelpers::DEFAULT_IMPLODE
 
+  # 'jquery', 'prototype'
+  mattr_accessor :refresh_format
+  @@refresh_format = 'jquery'
+
   # command path
   mattr_accessor :image_magick_path
   @@image_magick_path = ''

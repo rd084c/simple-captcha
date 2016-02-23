@@ -248,6 +248,14 @@ SimpleCaptcha.setup do |sc|
 end
 ```
 
+You can setup in which format the reload of the captcha is executed:
+
+```ruby
+SimpleCaptcha.setup do |sc|
+  sc.refresh_format = 'prototype' # or jquery, default is jquery
+end
+```
+
 
 ### How to change the CSS for SimpleCaptcha DOM elements?
 

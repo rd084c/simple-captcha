@@ -80,11 +80,20 @@ module SimpleCaptcha
         status = 200
         id = request.params['id']
         captcha_hidden_field_id = simple_captch_hidden_field_id(id)
+        format = SimpleCaptcha.refresh_format
 
-        body = %Q{
-                    $("##{id}").attr('src', '#{url}');
-                    $("##{ captcha_hidden_field_id }").attr('value', '#{key}');
-                  }
+        if format == "jquery"
+          body = %Q{
+                      $("##{id}").attr('src', '#{url}');
+                      $("##{ captcha_hidden_field_id }").attr('value', '#{key}');
+                    }
+        elsif format == "prototype"
+          body = %Q{
+                      $("#{id}").setAttribute('src', '#{url}');
+                      $("#{ captcha_hidden_field_id }").setAttribute('value', '#{key}');
+                    }
+        end
+
         headers = {'Content-Type' => 'text/javascript; charset=utf-8', "Content-Disposition" => "inline; filename='captcha.js'", "Content-Length" => body.length.to_s}.merge(SimpleCaptcha.extra_response_headers)
         [status, headers, [body]]
       end
