@@ -17,6 +17,8 @@ env:
   - DB=mysql FORMTASTIC='~> 2.2'      RAILS='~> 5.0'
 
 matrix:
+  allow_failures:
+    - rvm: ruby-head
   include:
     - rvm: 2.2.6
       env: DB=mysql RAILS='4.2'
