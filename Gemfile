@@ -10,6 +10,10 @@ if ENV['DB'] and ENV['DB']['mysql']
   gem 'mysql2'
 end
 
+if ENV['DB'] and ENV['DB']['postgresql']
+  gem 'pg'
+end
+
 if ENV['FORMTASTIC']
   gem 'formtastic', ENV['FORMTASTIC']
 end
