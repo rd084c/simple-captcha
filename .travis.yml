@@ -9,8 +9,12 @@ rvm:
   - 'ruby-head'
 
 env:
-  - DB=sqlite                     RAILS='~> 5.0'
-  - DB=sqlite FORMTASTIC='~> 2.2' RAILS='~> 5.0'
+  - DB=sqlite                         RAILS='~> 5.0'
+  - DB=sqlite FORMTASTIC='~> 2.2'     RAILS='~> 5.0'
+  - DB=postgresql                     RAILS='~> 5.0'
+  - DB=postgresql FORMTASTIC='~> 2.2' RAILS='~> 5.0'
+  - DB=mysql                          RAILS='~> 5.0'
+  - DB=mysql FORMTASTIC='~> 2.2'      RAILS='~> 5.0'
 
 matrix:
   include:
