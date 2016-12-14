@@ -15,7 +15,7 @@ module SimpleCaptcha #:nodoc
     #  end
     def simple_captcha_valid?
       return true if SimpleCaptcha.always_pass
-      return @_simple_captcha_result unless @_simple_captcha_result.nil?
+      return @_simple_captcha_result unless !defined?(@_simple_captcha_result) || @_simple_captcha_result.nil?
 
       if params[:captcha]
         captcha_key = params[:captcha_key] || session[:captcha]
