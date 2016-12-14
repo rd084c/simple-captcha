@@ -4,7 +4,7 @@ sudo: false
 cache: bundler
 
 rvm:
-  - '2.2.3'
+  - '2.2.6'
   - '2.3.3'
   - 'ruby-head'
 
@@ -14,10 +14,10 @@ env:
 
 matrix:
   include:
-    - rvm: 2.2.3
+    - rvm: 2.2.6
       env: DB=mysql RAILS='4.2'
   include:
-    - rvm: 2.2.3
+    - rvm: 2.2.6
       env: DB=sqlite FORMTASTIC='~> 2.2' RAILS='~> 4.2'
 
 before_script:
