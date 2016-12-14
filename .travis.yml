@@ -9,8 +9,8 @@ rvm:
   - 'ruby-head'
 
 env:
-  - DB=sqlite                     RAILS='~> 4.2'
-  - DB=sqlite FORMTASTIC='~> 2.2' RAILS='~> 4.2'
+  - DB=sqlite                     RAILS='~> 5.0'
+  - DB=sqlite FORMTASTIC='~> 2.2' RAILS='~> 5.0'
 
 matrix:
   include:
