@@ -307,12 +307,11 @@ en:
 For testing, generate a temporary Rails dummy app inside test:
 
 ```bash
-rake dummy:setup
-rake app:db:migrate
-rake app:db:migrate RAILS_ENV=test
-export BUNDLE_GEMFILE=$PWD/Gemfile
-cd test/dummy && rake db:migrate db:test:prepare
-rake test
+bundle
+bundle exec rake dummy:setup
+bundle exec rake app:db:migrate
+bundle exec rake app:db:migrate RAILS_ENV=test
+bundle exec rake test
 ```
 
 Please add test cases when adding new functionality. I started with some basic example integration tests for a very basic coverage.
