@@ -9,12 +9,9 @@ rvm:
   - 'ruby-head'
 
 env:
-  - DB=sqlite                         RAILS='~> 5.0'
-  - DB=sqlite FORMTASTIC='~> 2.2'     RAILS='~> 5.0'
-  - DB=postgresql                     RAILS='~> 5.0'
-  - DB=postgresql FORMTASTIC='~> 2.2' RAILS='~> 5.0'
-  - DB=mysql                          RAILS='~> 5.0'
-  - DB=mysql FORMTASTIC='~> 2.2'      RAILS='~> 5.0'
+  - DB=sqlite     RAILS='~> 5.0'
+  - DB=postgresql RAILS='~> 5.0'
+  - DB=mysql      RAILS='~> 5.0'
 
 matrix:
   allow_failures:
@@ -24,7 +21,7 @@ matrix:
       env: DB=mysql RAILS='4.2'
   include:
     - rvm: 2.2.6
-      env: DB=sqlite FORMTASTIC='~> 2.2' RAILS='~> 4.2'
+      env: DB=sqlite RAILS='~> 4.2'
 
 before_script:
   # - mysql -e 'create database myapp_test'
