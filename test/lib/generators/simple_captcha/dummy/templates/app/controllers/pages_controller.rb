@@ -5,9 +5,9 @@ class PagesController < ApplicationController
   def form_tag_submit
     simple_captcha_valid? # idempotence
     if simple_captcha_valid?
-      render text: 'captcha valid!'
+      render plain: 'captcha valid!'
     else
-      render text: 'captcha not valid!'
+      render plain: 'captcha not valid!'
     end
   end
 
@@ -16,11 +16,11 @@ class PagesController < ApplicationController
   end
 
   def model_tag_submit
-    @model = User.new(params[:user])
+    @model = User.new(user_params)
     if @model.valid_with_captcha?
-      render text: 'captcha valid!'
+      render plain: 'captcha valid!'
     else
-      render text: 'captcha not valid!'
+      render plain: 'captcha not valid!'
     end
   end
 
@@ -29,11 +29,17 @@ class PagesController < ApplicationController
   end
 
   def formtastic_tag_submit
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     if @user.valid_with_captcha?
-      render text: 'captcha valid!'
+      render plain: 'captcha valid!'
     else
       render :formtastic_tag
     end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:captcha, :captcha_key)
   end
 end

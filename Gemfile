@@ -2,13 +2,15 @@ source "https://rubygems.org"
 
 gemspec :name => 'simple_captcha2'
 
-gem 'rails', ENV['RAILS'] || '~> 4.0'
+gem 'rails', ENV['RAILS'] || '~> 5.0'
+gem 'listen'
 gem 'jquery-rails'
+gem 'formtastic'
 
 if ENV['DB'] and ENV['DB']['mysql']
   gem 'mysql2'
 end
 
-if ENV['FORMTASTIC']
-  gem 'formtastic', ENV['FORMTASTIC']
+if ENV['DB'] and ENV['DB']['postgresql']
+  gem 'pg'
 end
