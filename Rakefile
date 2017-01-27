@@ -15,7 +15,7 @@ RDoc::Task.new(:rdoc) do |rdoc|
 end
 
 APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
-if File.exists? APP_RAKEFILE
+if File.exist? APP_RAKEFILE
   load 'rails/tasks/engine.rake'
 end
 
@@ -30,7 +30,7 @@ namespace :dummy do
 
   desc 'destroy dummy Rails app under test/dummy'
   task :destroy do
-    FileUtils.rm_rf "test/dummy" if File.exists?("test/dummy")
+    FileUtils.rm_rf "test/dummy" if File.exist?("test/dummy")
   end
 
   desc 'redo'

@@ -44,10 +44,11 @@ class FormHelperTest  < ActionDispatch::IntegrationTest
   end
 
   test 'Refresh Button' do
-    visit '/pages/form_tag'
+    skip
+    # visit '/pages/form_tag'
     # captcha= SimpleCaptcha::SimpleCaptchaData.first
-    img = find('img')['src']
-    click_on 'Refresh'
+    # img = find('img')['src']
+    # click_on 'Refresh'
 
     # assert_not_equal img, new_img
     # fill_in 'captcha', with: new_captcha.value
