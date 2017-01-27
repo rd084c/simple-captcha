@@ -9,6 +9,17 @@ module SimpleCaptcha
       :disposition  => 'attachment'.freeze,
     }.freeze
 
+    REFRESH_FORMATS = {
+      :jquery       => %Q{
+          $("#%{id}").attr('src', '%{url}');
+          $("#%{captcha_hidden_field_id}").attr('value', '%{key}');
+      }.freeze,
+      :prototype    => %Q{
+          $("%{id}").setAttribute('src', '%{url}');
+          $("%{captcha_hidden_field_id}").setAttribute('value', '%{key}');
+      }.freeze,
+    }.freeze
+
     def initialize(app, options={})
       @app = app
       self
@@ -81,18 +92,9 @@ module SimpleCaptcha
         id = request.params['id']
         captcha_hidden_field_id = simple_captch_hidden_field_id(id)
         format = SimpleCaptcha.refresh_format
+        raise ::ArgumentError, "Format adapter '#{format}' is not available" unless format.in?(REFRESH_FORMATS)
 
-        if format == "jquery"
-          body = %Q{
-                      $("##{id}").attr('src', '#{url}');
-                      $("##{ captcha_hidden_field_id }").attr('value', '#{key}');
-                    }
-        elsif format == "prototype"
-          body = %Q{
-                      $("#{id}").setAttribute('src', '#{url}');
-                      $("#{ captcha_hidden_field_id }").setAttribute('value', '#{key}');
-                    }
-        end
+        body = REFRESH_FORMATS[format] % {id: id, url: url, captcha_hidden_field_id: captcha_hidden_field_id, key: key}
 
         headers = {'Content-Type' => 'text/javascript; charset=utf-8', "Content-Disposition" => "inline; filename='captcha.js'", "Content-Length" => body.length.to_s}.merge(SimpleCaptcha.extra_response_headers)
         [status, headers, [body]]

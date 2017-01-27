@@ -252,7 +252,7 @@ You can setup in which format the reload of the captcha is executed:
 
 ```ruby
 SimpleCaptcha.setup do |sc|
-  sc.refresh_format = 'prototype' # or jquery, default is jquery
+  sc.refresh_format = :prototype # or jquery, default is jquery
 end
 ```
 

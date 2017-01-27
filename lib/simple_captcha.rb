@@ -53,7 +53,7 @@ module SimpleCaptcha
 
   # 'jquery', 'prototype'
   mattr_accessor :refresh_format
-  @@refresh_format = 'jquery'
+  @@refresh_format = :jquery
 
   # command path
   mattr_accessor :image_magick_path
