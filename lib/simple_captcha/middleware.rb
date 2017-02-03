@@ -14,6 +14,16 @@ module SimpleCaptcha
           $("#%{id}").attr('src', '%{url}');
           $("#%{captcha_hidden_field_id}").attr('value', '%{key}');
       }.freeze,
+      :plain_javascript => %Q{
+          var img = document.getElementById("%{id}");
+          if (img != null) {
+            img.src = "%{url}";
+          }
+          var hidden = document.getElementById("%{captcha_hidden_field_id}");
+          if (hidden != null) {
+            hidden.value = "%{key}";
+          }
+      }.freeze,
       :prototype    => %Q{
           $("%{id}").setAttribute('src', '%{url}');
           $("%{captcha_hidden_field_id}").setAttribute('value', '%{key}');
@@ -91,7 +101,7 @@ module SimpleCaptcha
         status = 200
         id = request.params['id']
         captcha_hidden_field_id = simple_captch_hidden_field_id(id)
-        format = SimpleCaptcha.refresh_format
+        format = SimpleCaptcha.refresh_format.to_sym
         raise ::ArgumentError, "Format adapter '#{format}' is not available" unless format.in?(REFRESH_FORMATS)
 
         body = REFRESH_FORMATS[format] % {id: id, url: url, captcha_hidden_field_id: captcha_hidden_field_id, key: key}
