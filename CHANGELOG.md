@@ -1,5 +1,10 @@
 # Change Log
 
+## [v0.4.2](https://github.com/pludoni/simple-captcha/tree/v0.4.2) (2017-02-04)
+
+- Rails 5 compatibility https://github.com/pludoni/simple-captcha/pull/53 by [deivid-rodriguez](https://github.com/deivid-rodriguez)
+- For reload button can now also drop jQuery and rely on Prototype or Plain Javascript https://github.com/pludoni/simple-captcha/pull/51 by [bfbones](https://github.com/bfbones)
+
 ## [v0.4.0](https://github.com/pludoni/simple-captcha/tree/v0.4.0) (2015-12-29)
 [Full Changelog](https://github.com/pludoni/simple-captcha/compare/v0.3.4...v0.4.0)
 
