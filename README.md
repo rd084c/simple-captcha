@@ -256,6 +256,13 @@ SimpleCaptcha.setup do |sc|
 end
 ```
 
+If needed, you can explicitly state the font used for generating the captcha:
+
+```ruby
+SimpleCaptcha.setup do |sc|
+  sc.font = "DejaVu-Sans"
+end
+```
 
 ### How to change the CSS for SimpleCaptcha DOM elements?
 
