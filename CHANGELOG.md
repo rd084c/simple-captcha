@@ -1,5 +1,9 @@
 # Change Log
 
+## [v0.4.3](https://github.com/pludoni/simple-captcha/tree/v0.4.3) (2017-02-20)
+
+-  Allow manual font family overrides #55 to help user on Debian testing with ImageMagick Version 6.9.6
+
 ## [v0.4.2](https://github.com/pludoni/simple-captcha/tree/v0.4.2) (2017-02-04)
 
 - Rails 5 compatibility https://github.com/pludoni/simple-captcha/pull/53 by [deivid-rodriguez](https://github.com/deivid-rodriguez)
