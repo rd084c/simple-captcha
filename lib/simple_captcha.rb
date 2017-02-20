@@ -67,6 +67,10 @@ module SimpleCaptcha
   mattr_accessor :noise
   @@noise = 0
 
+  # used font
+  mattr_accessor :font
+  @@font = ''
+
   mattr_accessor :extra_response_headers
   @@extra_response_headers = {}
 
