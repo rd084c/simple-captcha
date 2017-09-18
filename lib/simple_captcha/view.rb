@@ -64,7 +64,7 @@ module SimpleCaptcha #:nodoc
       }.merge(options)
     end
 
-    private
+    #private
 
       def simple_captcha_image(simple_captcha_key, options = {})
         url = simple_captcha_image_url simple_captcha_key, options: options
