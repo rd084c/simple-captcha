@@ -82,11 +82,11 @@ module SimpleCaptcha #:nodoc
       end
 
       def build_url(options, path)
-        if defined?(request) && request
-          "#{request.protocol}#{request.host_with_port}#{ENV['RAILS_RELATIVE_URL_ROOT']}#{path}"
-        else
+        #if defined?(request) && request
+        #  "#{request.protocol}#{request.host_with_port}#{ENV['RAILS_RELATIVE_URL_ROOT']}#{path}"
+        #else
           "#{ENV['RAILS_RELATIVE_URL_ROOT']}#{path}"
-        end
+        #end
       end
 
       def simple_captcha_field(options={})
