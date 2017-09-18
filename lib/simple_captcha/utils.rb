@@ -32,5 +32,17 @@ module SimpleCaptcha #:nodoc
       args << (Time.now.to_f * 1_000_000_000).to_s
       Digest::SHA1.hexdigest(args.join)
     end
+
+    # 校验 captcha, 成功: true; 否则: false
+    def self.verify!(captcha_key, captcha)
+      value = SimpleCaptcha::Utils::simple_captcha_value(captcha_key)
+      if (captcha.delete(" ").casecmp(value) == 0)
+        SimpleCaptcha::Utils::simple_captcha_passed!(captcha_key)
+        true
+      else
+        false
+      end
+    end
+    
   end
 end
